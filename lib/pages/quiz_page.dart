@@ -18,7 +18,7 @@ class QuizPageState extends State<QuizPage> {
       new Column(// This is our main page
           children: <Widget>[
         new AnswerButton(true, () => print("You answered true")),
-        new QuestionText(),
+        new QuestionText("Pizza hahha", 1),
         new AnswerButton(false, () => print("You answered false"))
       ])
     ]);
