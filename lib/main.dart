@@ -9,10 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Abstrack',
       theme:
-          new ThemeData(primarySwatch: Colors.purple, fontFamily: 'ibm-sans'),
-      home: new Home(title: 'Nick\'s test'),
+          new ThemeData(primarySwatch: Colors.blueGrey, fontFamily: 'ibm-sans'),
+      home: new Home(title: 'Abstrack'),
     );
   }
 }
@@ -21,8 +21,8 @@ class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
 
   final String title;
-  final String _markdownData = """# Jessie is stale
-Markdown allows you to easily include formatted text, images, and even formatted Dart code in your app.
+  final String _markdownData =
+      """Markdown allows you to easily include formatted text, images, and even formatted Dart code in your app.
 ## Styling
 Style text as _italic_, __bold__, or `inline code`.
 - Use bulleted lists
@@ -31,8 +31,8 @@ Style text as _italic_, __bold__, or `inline code`.
 ## Links
 You can use [hyperlinks](http://abstrack.co/) in markdown
 ## Images
-You can include images:
-![Flutter logo](https://flutter.io/images/flutter-mark-square-100.png#100x100)
+You can include images:\n
+![img](https://i.imgur.com/nmvyAAU.jpg)
 ## Markdown widget
 This is an example of how to create your own Markdown widget:
     new Markdown(data: 'Hello _world_!');
@@ -62,13 +62,24 @@ class _Home extends State<Home> {
           title: new Text(widget.title),
         ),
         body: new Material(
-            color: Colors.purple,
-            child: new Column(children: <Widget>[
-              new Markdown(
-                data: widget._markdownData,
-                onTapLink: Utils.launchURL,
-                padding: new EdgeInsets.all(20.0),
-              )
-            ])));
+            child: new ListView(
+              children: <Widget>[
+                new Container(
+                    padding: new EdgeInsets.all(15.0),
+                    decoration:
+                        new BoxDecoration(color: Colors.white, boxShadow: [
+                      new BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 5.0,
+                      ),
+                    ]),
+                    child: new Text("This is the title",
+                        style: new TextStyle(fontSize: 40.0))),
+                new Padding(
+                    padding: new EdgeInsets.all(15.0),
+                    child: new MarkdownBody(
+                        data: widget._markdownData, onTapLink: Utils.launchURL))
+              ],
+            )));
   }
 }
