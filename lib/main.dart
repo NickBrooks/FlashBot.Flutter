@@ -73,7 +73,7 @@ class _Home extends State<Home> {
                         blurRadius: 5.0,
                       ),
                     ]),
-                    child: new Text("This is the title",
+                    child: new Text("Jessie is awesome",
                         style: new TextStyle(fontSize: 40.0))),
                 new Padding(
                     padding: new EdgeInsets.all(15.0),
