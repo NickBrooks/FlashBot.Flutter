@@ -18,12 +18,47 @@ class AbstrackApp extends StatelessWidget {
     return new StoreProvider(
       store: store,
       child: new MaterialApp(
-          title: "Abstrack",
-          theme: new ThemeData.dark(),
+          theme: new ThemeData.light(),
           routes: <String, WidgetBuilder>{
-            AbstrackRoutes.home: (context) => new Text("Hey")
+            AbstrackRoutes.home: (context) => new Home(title: "Abstrack")
           }),
     );
+  }
+}
+
+class Home extends StatefulWidget {
+  Home({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _HomeState createState() => new _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text(widget.title),
+        ),
+        body: new Material(
+            child: new ListView(
+          children: <Widget>[
+            new Container(
+                padding: new EdgeInsets.all(15.0),
+                decoration: new BoxDecoration(color: Colors.white, boxShadow: [
+                  new BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5.0,
+                  ),
+                ]),
+                child: new Text("This is the title",
+                    style: new TextStyle(fontSize: 40.0))),
+            new Padding(
+                padding: new EdgeInsets.all(15.0), child: new Text("Hey"))
+          ],
+        )));
   }
 }
 
