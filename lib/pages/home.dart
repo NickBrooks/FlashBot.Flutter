@@ -20,13 +20,26 @@ class _HomeState extends State<Home> {
     return new Scaffold(
         appBar: new AppBar(
           title: new Text(widget.title),
+          actions: <Widget>[
+            new IconButton(
+              // action button
+              icon: new Icon(Icons.snooze),
+              onPressed: () {},
+            ),
+            new IconButton(
+              // action button
+              icon: new Icon(Icons.headset),
+              onPressed: () {},
+            )
+          ],
         ),
         body: new Material(
             child: new StoreConnector<AppState, List<Request>>(
           converter: (store) => store.state.requests,
           builder: (context, requests) {
             return new ListView(
-              padding: EdgeInsets.all(15.0),
+              physics: AlwaysScrollableScrollPhysics(),
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
               children: _buildRequestList(requests),
             );
           },

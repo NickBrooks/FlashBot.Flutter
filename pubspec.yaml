@@ -9,4 +9,17 @@ dependencies:
 
 flutter:
   uses-material-design: true
-    
+  fonts:
+    - family: ibm-sans
+      fonts:
+        - asset: fonts/IBMPlexSans-Regular.ttf
+        - asset: fonts/IBMPlexSans-Italic.ttf
+          style: italic
+        - asset: fonts/IBMPlexSans-Bold.ttf
+          weight: 500
+        - asset: fonts/IBMPlexSans-BoldItalic.ttf
+          style: italic
+          weight: 500
+    - family: ibm-serif
+      fonts:
+        - asset: fonts/IBMPlexSerif-SemiBold.ttf

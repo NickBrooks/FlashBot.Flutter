@@ -24,9 +24,9 @@ class AbstrackApp extends StatelessWidget {
     return new StoreProvider(
       store: store,
       child: new MaterialApp(
-          theme: new ThemeData.light(),
+          theme: new ThemeData(fontFamily: 'ibm-sans'),
           routes: <String, WidgetBuilder>{
-            AbstrackRoutes.home: (context) => new Home(title: "Abstrack")
+            AbstrackRoutes.home: (context) => new Home(title: "ABSTRACK")
           }),
     );
   }
