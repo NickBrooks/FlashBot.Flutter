@@ -1,12 +1,18 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
+
+import 'appState/appState.dart';
+import 'pages/home.dart';
+import 'reducers/notesReducer.dart';
 
 void main() {
   runApp(new AbstrackApp());
+}
+
+class AbstrackRoutes {
+  static final home = "/";
+  static final addNote = "/addNote";
 }
 
 class AbstrackApp extends StatelessWidget {
@@ -26,188 +32,6 @@ class AbstrackApp extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
-  Home({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _HomeState createState() => new _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text(widget.title),
-        ),
-        body: new Material(
-            child: new StoreConnector<AppState, List<Note>>(
-          converter: (store) => store.state.notes,
-          builder: (context, notes) {
-            return new ListView(
-              padding: EdgeInsets.all(15.0),
-              children: _buildNoteList(notes),
-            );
-          },
-        )));
-  }
-
-  List<NoteWidget> _buildNoteList(List<Note> notes) {
-    return notes.map((note) => new NoteWidget(note)).toList();
-  }
-}
-
-class NoteWidget extends StatelessWidget {
-  final Note note;
-
-  NoteWidget(this.note);
-
-  @override
-  Widget build(BuildContext context) {
-    return new Card(
-      child: new Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const ListTile(
-            leading: const Icon(Icons.album),
-            title: const Text('The Enchanted Nightingale'),
-            subtitle:
-                const Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-          ),
-          new ButtonTheme.bar(
-            // make buttons use the appropriate styles for cards
-            child: new ButtonBar(
-              children: <Widget>[
-                new FlatButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () {/* ... */},
-                ),
-                new FlatButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () {/* ... */},
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class AbstrackRoutes {
-  static final home = "/";
-  static final addNote = "/addNote";
-}
-
-class AppState {
-  final int counter;
-  final List<Note> notes;
-
-  AppState({this.counter = 0, this.notes = const []});
-
-  factory AppState.initial() => new AppState(counter: 0, notes: [
-        new Note(
-            id: Uuid().generateV4(),
-            title: "Nick's thingo",
-            note: "This is Nick's first note"),
-        new Note(
-            id: Uuid().generateV4(),
-            title: "Fogarty magic",
-            note: "This is Darcy Fogarty")
-      ]);
-}
-
-@immutable
-class Note {
-  final String id;
-  final String title;
-  final String note;
-
-  Note({String id, String title, String note})
-      : this.note = note ?? '',
-        this.title = title ?? '',
-        this.id = id ?? new Uuid().generateV4();
-}
-
 AppState appReducer(AppState state, action) {
-  return new AppState(
-      counter: counterReducer(state.counter, action),
-      notes: notesReducer(state.notes, action));
-}
-
-final counterReducer = combineReducers<int>([
-  new TypedReducer<int, IncreaseCounterAction>(_increaseCounter),
-  new TypedReducer<int, DecreaseCounterAction>(_decreaseCounter)
-]);
-
-final notesReducer = combineReducers<List<Note>>([
-  new TypedReducer<List<Note>, AddNoteAction>(_addNote),
-  new TypedReducer<List<Note>, NotesLoadedAction>(_setLoadedNotes),
-  new TypedReducer<List<Note>, NotesNotLoadedAction>(_setNoNotes),
-]);
-
-int _increaseCounter(int count, IncreaseCounterAction action) {
-  return count++;
-}
-
-int _decreaseCounter(int count, DecreaseCounterAction action) {
-  return count--;
-}
-
-List<Note> _addNote(List<Note> notes, AddNoteAction action) {
-  return new List.from(notes)..add(action.note);
-}
-
-List<Note> _setLoadedNotes(List<Note> notes, NotesLoadedAction action) {
-  return action.notes;
-}
-
-List<Note> _setNoNotes(List<Note> notes, NotesNotLoadedAction action) {
-  return [];
-}
-
-class IncreaseCounterAction {}
-
-class DecreaseCounterAction {}
-
-class AddNoteAction {
-  final Note note;
-
-  AddNoteAction(this.note);
-}
-
-class NotesLoadedAction {
-  final List<Note> notes;
-
-  NotesLoadedAction(this.notes);
-}
-
-class NotesNotLoadedAction {}
-
-class Uuid {
-  final Random _random = new Random();
-
-  /// Generate a version 4 (random) uuid. This is a uuid scheme that only uses
-  /// random numbers as the source of the generated uuid.
-  String generateV4() {
-    // Generate xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx / 8-4-4-4-12.
-    final int special = 8 + _random.nextInt(4);
-
-    return '${_bitsDigits(16, 4)}${_bitsDigits(16, 4)}-'
-        '${_bitsDigits(16, 4)}-'
-        '4${_bitsDigits(12, 3)}-'
-        '${_printDigits(special, 1)}${_bitsDigits(12, 3)}-'
-        '${_bitsDigits(16, 4)}${_bitsDigits(16, 4)}${_bitsDigits(16, 4)}';
-  }
-
-  String _bitsDigits(int bitCount, int digitCount) =>
-      _printDigits(_generateBits(bitCount), digitCount);
-
-  int _generateBits(int bitCount) => _random.nextInt(1 << bitCount);
-
-  String _printDigits(int value, int count) =>
-      value.toRadixString(16).padLeft(count, '0');
+  return new AppState(notes: notesReducer(state.notes, action));
 }
