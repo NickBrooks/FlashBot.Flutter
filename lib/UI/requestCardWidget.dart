@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/request.dart';
+import '../pages/request.dart';
 
 class RequestCardWidget extends StatelessWidget {
   final Request request;
@@ -35,7 +36,13 @@ class RequestCardWidget extends StatelessWidget {
                   children: <Widget>[
                     new FlatButton(
                       child: new Text('VIEW'),
-                      onPressed: () {/* ... */},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new RequestPage(request)),
+                        );
+                      },
                     ),
                   ],
                 ),

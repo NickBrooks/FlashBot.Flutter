@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import '../appState/appState.dart';
 import '../models/request.dart';
 import '../tools/utilities.dart';
 
 class RequestPage extends StatefulWidget {
-  RequestPage({Key key, this.request}) : super(key: key);
+  RequestPage(this.request, {Key key}) : super(key: key);
 
   final Request request;
 
