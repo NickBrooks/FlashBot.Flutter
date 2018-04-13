@@ -43,22 +43,57 @@ class _HomeState extends State<Home> {
           title: new Text(widget.title),
         ),
         body: new Material(
-            child: new ListView(
-          children: <Widget>[
-            new Container(
-                padding: new EdgeInsets.all(15.0),
-                decoration: new BoxDecoration(color: Colors.white, boxShadow: [
-                  new BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 5.0,
-                  ),
-                ]),
-                child: new Text("This is the title",
-                    style: new TextStyle(fontSize: 40.0))),
-            new Padding(
-                padding: new EdgeInsets.all(15.0), child: new Text("Hey"))
-          ],
+            child: new StoreConnector<AppState, List<Note>>(
+          converter: (store) => store.state.notes,
+          builder: (context, notes) {
+            return new ListView(
+              padding: EdgeInsets.all(15.0),
+              children: _buildNoteList(notes),
+            );
+          },
         )));
+  }
+
+  List<NoteWidget> _buildNoteList(List<Note> notes) {
+    return notes.map((note) => new NoteWidget(note)).toList();
+  }
+}
+
+class NoteWidget extends StatelessWidget {
+  final Note note;
+
+  NoteWidget(this.note);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Card(
+      child: new Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          const ListTile(
+            leading: const Icon(Icons.album),
+            title: const Text('The Enchanted Nightingale'),
+            subtitle:
+                const Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+          ),
+          new ButtonTheme.bar(
+            // make buttons use the appropriate styles for cards
+            child: new ButtonBar(
+              children: <Widget>[
+                new FlatButton(
+                  child: const Text('BUY TICKETS'),
+                  onPressed: () {/* ... */},
+                ),
+                new FlatButton(
+                  child: const Text('LISTEN'),
+                  onPressed: () {/* ... */},
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -77,7 +112,11 @@ class AppState {
         new Note(
             id: Uuid().generateV4(),
             title: "Nick's thingo",
-            note: "This is Nick's first note")
+            note: "This is Nick's first note"),
+        new Note(
+            id: Uuid().generateV4(),
+            title: "Fogarty magic",
+            note: "This is Darcy Fogarty")
       ]);
 }
 
