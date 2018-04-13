@@ -1,20 +1,20 @@
-import '../models/note.dart';
+import '../models/request.dart';
 import '../tools/utilities.dart';
 
 class AppState {
   final int counter;
-  final List<Note> notes;
+  final List<Request> requests;
 
-  AppState({this.counter = 0, this.notes = const []});
+  AppState({this.counter = 0, this.requests = const []});
 
-  factory AppState.initial() => new AppState(counter: 0, notes: [
-        new Note(
+  factory AppState.initial() => new AppState(counter: 0, requests: [
+        new Request(
             id: Uuid().generateV4(),
             title: "Nick's thingo",
-            note: "This is Nick's first note"),
-        new Note(
+            summary: "This is Nick's first request"),
+        new Request(
             id: Uuid().generateV4(),
             title: "Fogarty magic",
-            note: "This is Darcy Fogarty")
+            summary: "This is Darcy Fogarty")
       ]);
 }

@@ -4,7 +4,7 @@ import 'package:redux/redux.dart';
 
 import 'appState/appState.dart';
 import 'pages/home.dart';
-import 'reducers/notesReducer.dart';
+import 'reducers/requestsReducer.dart';
 
 void main() {
   runApp(new AbstrackApp());
@@ -12,7 +12,7 @@ void main() {
 
 class AbstrackRoutes {
   static final home = "/";
-  static final addNote = "/addNote";
+  static final addRequest = "/addRequest";
 }
 
 class AbstrackApp extends StatelessWidget {
@@ -33,5 +33,5 @@ class AbstrackApp extends StatelessWidget {
 }
 
 AppState appReducer(AppState state, action) {
-  return new AppState(notes: notesReducer(state.notes, action));
+  return new AppState(requests: requestsReducer(state.requests, action));
 }

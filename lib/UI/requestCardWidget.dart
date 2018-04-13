@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../models/note.dart';
+import '../models/request.dart';
 
-class NoteWidget extends StatelessWidget {
-  final Note note;
+class RequestCardWidget extends StatelessWidget {
+  final Request request;
 
-  NoteWidget(this.note);
+  RequestCardWidget(this.request);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class NoteWidget extends StatelessWidget {
               Icons.store_mall_directory,
               size: 30.0,
             ),
-            title: new Text(note.title),
-            subtitle: new Text(note.note),
+            title: new Text(request.title),
+            subtitle: new Text(request.summary),
           ),
           new ButtonTheme.bar(
             // make buttons use the appropriate styles for cards

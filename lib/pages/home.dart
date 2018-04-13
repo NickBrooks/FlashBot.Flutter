@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../UI/noteWidget.dart';
+import '../UI/requestCardWidget.dart';
 import '../appState/appState.dart';
-import '../models/note.dart';
+import '../models/request.dart';
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
@@ -22,18 +22,18 @@ class _HomeState extends State<Home> {
           title: new Text(widget.title),
         ),
         body: new Material(
-            child: new StoreConnector<AppState, List<Note>>(
-          converter: (store) => store.state.notes,
-          builder: (context, notes) {
+            child: new StoreConnector<AppState, List<Request>>(
+          converter: (store) => store.state.requests,
+          builder: (context, requests) {
             return new ListView(
               padding: EdgeInsets.all(15.0),
-              children: _buildNoteList(notes),
+              children: _buildRequestList(requests),
             );
           },
         )));
   }
 
-  List<NoteWidget> _buildNoteList(List<Note> notes) {
-    return notes.map((note) => new NoteWidget(note)).toList();
+  List<RequestCardWidget> _buildRequestList(List<Request> requests) {
+    return requests.map((request) => new RequestCardWidget(request)).toList();
   }
 }
