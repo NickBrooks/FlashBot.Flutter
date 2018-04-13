@@ -4,6 +4,7 @@ import 'package:redux/redux.dart';
 
 import 'appState/appState.dart';
 import 'pages/home.dart';
+import 'pages/request.dart';
 import 'reducers/requestsReducer.dart';
 
 void main() {
@@ -11,7 +12,7 @@ void main() {
 }
 
 class AbstrackRoutes {
-  static final home = "/";
+  static final feed = "/";
   static final request = "/request";
 }
 
@@ -26,7 +27,8 @@ class AbstrackApp extends StatelessWidget {
       child: new MaterialApp(
           theme: new ThemeData(fontFamily: 'ibm-sans'),
           routes: <String, WidgetBuilder>{
-            AbstrackRoutes.home: (context) => new Home(title: "ABSTRACK")
+            AbstrackRoutes.feed: (context) => new Home(title: "ABSTRACK"),
+            AbstrackRoutes.request: (context) => new RequestPage()
           }),
     );
   }

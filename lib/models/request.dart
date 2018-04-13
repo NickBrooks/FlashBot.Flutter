@@ -26,5 +26,5 @@ class Request {
         this.dateCreated = dateCreated ?? new DateTime.now(),
         this.tags = tags ?? [],
         this.summary = summary ?? '',
-        this.id = id ?? new Uuid().generateV4();
+        this.id = id ?? new Utils().generateV4();
 }

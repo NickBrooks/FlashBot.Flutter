@@ -9,7 +9,7 @@ class AppState {
 
   factory AppState.initial() => new AppState(counter: 0, requests: [
         new Request(
-            id: Uuid().generateV4(),
+            id: Utils().generateV4(),
             title: "Nick's thingo",
             summary:
                 "Boom Boom yeh. This is Nick's first request and the second request and the third request and the fourth request and the fifth request yes yes yes yes yes.",
@@ -18,7 +18,7 @@ class AppState {
             tags: ["test", "fogarty", "chinese", "chicken"],
             trackId: "a2a9ca52-09c5-4694-ac0f-df6ae1372a47"),
         new Request(
-            id: Uuid().generateV4(),
+            id: Utils().generateV4(),
             title: "Darcy Fogarty",
             summary: "Darcy Fogarty can kick goals",
             body: "What do we know about that???",

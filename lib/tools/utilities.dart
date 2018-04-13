@@ -1,6 +1,7 @@
 import 'dart:math';
+import 'package:url_launcher/url_launcher.dart';
 
-class Uuid {
+class Utils {
   final Random _random = new Random();
 
   /// Generate a version 4 (random) uuid. This is a uuid scheme that only uses
@@ -23,4 +24,13 @@ class Uuid {
 
   String _printDigits(int value, int count) =>
       value.toRadixString(16).padLeft(count, '0');
+
+  static void launchURL(String url) async {
+    if (await canLaunch(url)) {
+      print(url);
+      await launch(url, forceWebView: true, forceSafariVC: true);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 }
