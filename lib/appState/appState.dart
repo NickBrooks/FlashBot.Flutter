@@ -12,7 +12,7 @@ class AppState {
             id: Uuid().generateV4(),
             title: "Nick's thingo",
             summary:
-                "This is Nick's first request and the second request and the third request and the fourth request and the fifth request yes yes yes yes yes.",
+                "Boom Boom yeh. This is Nick's first request and the second request and the third request and the fourth request and the fifth request yes yes yes yes yes.",
             body: "Hey this is the body",
             dateCreated: DateTime.parse("2018-04-09T05:17:41Z"),
             tags: ["test", "fogarty", "chinese", "chicken"],

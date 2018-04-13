@@ -15,13 +15,14 @@ class RequestCardWidget extends StatelessWidget {
           child: new Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              new Image.network(
+                'http://nnimgt-a.akamaihd.net/transform/v1/crop/frm/VXPt7xsp7g5SUQ49KQuzPr/4711a464-2174-4a8d-9460-9695632abbaa.jpg/r0_182_5022_3271_w1200_h678_fmax.jpg',
+              ),
               new ListTile(
-                leading: new Icon(
-                  Icons.store_mall_directory,
-                  size: 30.0,
-                ),
                 title: new Text(request.title),
-                subtitle: new Text(request.summary),
+                subtitle: new Text(request.summary.length > 80
+                    ? request.summary.substring(0, 80) + '...'
+                    : request.summary),
                 trailing: new Icon(
                   Icons.star,
                   size: 30.0,

@@ -12,7 +12,7 @@ void main() {
 
 class AbstrackRoutes {
   static final home = "/";
-  static final addRequest = "/addRequest";
+  static final request = "/request";
 }
 
 class AbstrackApp extends StatelessWidget {
