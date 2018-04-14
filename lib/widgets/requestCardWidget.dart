@@ -39,7 +39,7 @@ class RequestCardWidget extends StatelessWidget {
                     : new Container(),
                 new Container(
                     decoration: new BoxDecoration(
-                        color: Colors.blueGrey[50],
+                        color: Colors.green[300],
                         borderRadius:
                             new BorderRadius.all(new Radius.circular(2.0))),
                     padding:
@@ -48,7 +48,7 @@ class RequestCardWidget extends StatelessWidget {
                     child: new Text(
                       request.trackName,
                       style: new TextStyle(
-                          color: Colors.green[400],
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0),
                       overflow: TextOverflow.ellipsis,

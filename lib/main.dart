@@ -26,7 +26,7 @@ class AbstrackApp extends StatelessWidget {
       child: new MaterialApp(
           theme: new ThemeData(
               fontFamily: 'ibm-sans',
-              primaryColor: Colors.green[400],
+              primaryColor: Colors.green[300],
               accentColor: Colors.grey[900]),
           routes: <String, WidgetBuilder>{
             AbstrackRoutes.feed: (context) => new TabbedHome(title: "ABSTRACK")
