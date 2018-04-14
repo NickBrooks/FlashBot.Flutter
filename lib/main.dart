@@ -25,7 +25,10 @@ class AbstrackApp extends StatelessWidget {
     return new StoreProvider(
       store: store,
       child: new MaterialApp(
-          theme: new ThemeData(fontFamily: 'ibm-sans'),
+          theme: new ThemeData(
+              fontFamily: 'ibm-sans',
+              primaryColor: Colors.blue[700],
+              accentColor: Colors.grey[900]),
           routes: <String, WidgetBuilder>{
             AbstrackRoutes.feed: (context) => new Home(title: "ABSTRACK")
           }),

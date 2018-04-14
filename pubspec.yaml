@@ -17,11 +17,8 @@ flutter:
         - asset: fonts/IBMPlexSans-Regular.ttf
         - asset: fonts/IBMPlexSans-Italic.ttf
           style: italic
-        - asset: fonts/IBMPlexSans-Bold.ttf
+        - asset: fonts/IBMPlexSans-Medium.ttf
           weight: 500
-        - asset: fonts/IBMPlexSans-BoldItalic.ttf
+        - asset: fonts/IBMPlexSans-MediumItalic.ttf
           style: italic
           weight: 500
-    - family: ibm-serif
-      fonts:
-        - asset: fonts/IBMPlexSerif-SemiBold.ttf
