@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../UI/requestCardWidget.dart';
 import '../appState/appState.dart';
 import '../models/request.dart';
+import '../UI/requestFeed.dart';
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
@@ -40,13 +40,9 @@ class _HomeState extends State<Home> {
             return new ListView(
               padding: EdgeInsets.only(bottom: 15.0, left: 10.0, right: 10.0),
               physics: AlwaysScrollableScrollPhysics(),
-              children: _buildRequestList(requests),
+              children: requestFeed(requests),
             );
           },
         )));
-  }
-
-  List<RequestCardWidget> _buildRequestList(List<Request> requests) {
-    return requests.map((request) => new RequestCardWidget(request)).toList();
   }
 }

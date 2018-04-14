@@ -11,9 +11,11 @@ class TagsRowWidget extends StatelessWidget {
     var tagsList = new List<Container>();
 
     tags.take(count).forEach((t) => tagsList.add(new Container(
+        decoration: new BoxDecoration(
+            color: Colors.blue[400],
+            borderRadius: new BorderRadius.all(new Radius.circular(2.0))),
         margin: EdgeInsets.only(right: 5.0),
         padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
-        color: Colors.blue[400],
         child: new Text(
           t,
           style:

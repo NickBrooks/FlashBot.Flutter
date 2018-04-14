@@ -25,6 +25,7 @@ class RequestCardWidget extends StatelessWidget {
             child: new Card(
                 child: new Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 new Container(
                     child: request.imageUrl != ""
