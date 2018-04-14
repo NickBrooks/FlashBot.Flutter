@@ -23,25 +23,35 @@ class _TabbedHomeState extends State<TabbedHome> {
           return new DefaultTabController(
               length: 4,
               child: new Scaffold(
-                appBar: new AppBar(
-                  bottom: new TabBar(
-                    indicatorColor: Colors.blue[300],
-                    tabs: [
-                      new Tab(icon: new Icon(Icons.format_line_spacing)),
-                      new Tab(icon: new Icon(Icons.directions_transit)),
-                      new Tab(icon: new Icon(Icons.star)),
-                      new Tab(icon: new Icon(Icons.account_circle)),
+                body: new NestedScrollView(
+                  headerSliverBuilder:
+                      (BuildContext context, bool innerBoxIsScrolled) {
+                    return <Widget>[
+                      new SliverAppBar(
+                        title: new Text(widget.title),
+                        forceElevated: innerBoxIsScrolled,
+                        pinned: true,
+                        floating: true,
+                        bottom: new TabBar(
+                          indicatorColor: Colors.blue[300],
+                          tabs: [
+                            new Tab(icon: new Icon(Icons.format_line_spacing)),
+                            new Tab(icon: new Icon(Icons.directions_transit)),
+                            new Tab(icon: new Icon(Icons.star)),
+                            new Tab(icon: new Icon(Icons.account_circle)),
+                          ],
+                        ),
+                      ),
+                    ];
+                  },
+                  body: new TabBarView(
+                    children: [
+                      new RequestFeedWidget(requests),
+                      new Icon(Icons.directions_transit),
+                      new Icon(Icons.star),
+                      new Icon(Icons.account_circle),
                     ],
                   ),
-                  title: new Text(widget.title),
-                ),
-                body: new TabBarView(
-                  children: [
-                    new RequestFeedWidget(requests),
-                    new Icon(Icons.directions_transit),
-                    new Icon(Icons.star),
-                    new Icon(Icons.account_circle),
-                  ],
                 ),
               ));
         });
