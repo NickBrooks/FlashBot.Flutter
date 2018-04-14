@@ -3,7 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 import 'appState/appState.dart';
-import 'pages/home.dart';
+import 'pages/tabbedHome.dart';
 import 'pages/request.dart';
 import 'reducers/requestsReducer.dart';
 
@@ -30,7 +30,7 @@ class AbstrackApp extends StatelessWidget {
               primaryColor: Colors.blue[700],
               accentColor: Colors.grey[900]),
           routes: <String, WidgetBuilder>{
-            AbstrackRoutes.feed: (context) => new Home(title: "ABSTRACK")
+            AbstrackRoutes.feed: (context) => new TabbedHome(title: "ABSTRACK")
           }),
     );
   }
