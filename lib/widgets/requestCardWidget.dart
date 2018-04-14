@@ -39,7 +39,7 @@ class RequestCardWidget extends StatelessWidget {
                     : new Container(),
                 new Container(
                     decoration: new BoxDecoration(
-                        color: Colors.grey[100],
+                        color: Colors.blueGrey[50],
                         borderRadius:
                             new BorderRadius.all(new Radius.circular(2.0))),
                     padding:
@@ -48,8 +48,9 @@ class RequestCardWidget extends StatelessWidget {
                     child: new Text(
                       request.trackName,
                       style: new TextStyle(
-                          color: Colors.greenAccent[700],
-                          fontWeight: FontWeight.bold),
+                          color: Colors.green[400],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.0),
                       overflow: TextOverflow.ellipsis,
                     )),
                 new ListTile(
@@ -63,9 +64,9 @@ class RequestCardWidget extends StatelessWidget {
                           Utils.getHumanFriendlyDate(request.dateCreated),
                           style: new TextStyle(color: Colors.grey[500]))),
                   trailing: new Icon(
-                    Icons.star,
+                    Icons.star_border,
                     size: 30.0,
-                    color: Colors.orangeAccent,
+                    color: Colors.green[200],
                   ),
                 ),
                 new Container(

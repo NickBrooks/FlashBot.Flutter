@@ -28,12 +28,15 @@ class _TabbedHomeState extends State<TabbedHome> {
                       (BuildContext context, bool innerBoxIsScrolled) {
                     return <Widget>[
                       new SliverAppBar(
-                        title: new Text(widget.title),
+                        title: new Text(widget.title,
+                            style: new TextStyle(color: Colors.blueGrey[900])),
                         forceElevated: innerBoxIsScrolled,
                         pinned: true,
                         floating: true,
                         bottom: new TabBar(
-                          indicatorColor: Colors.blue[300],
+                          labelColor: Colors.green[100],
+                          unselectedLabelColor: Colors.blueGrey[900],
+                          indicatorColor: Colors.green[100],
                           tabs: [
                             new Tab(icon: new Icon(Icons.flash_on)),
                             new Tab(icon: new Icon(Icons.more)),

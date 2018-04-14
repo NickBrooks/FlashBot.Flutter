@@ -4,7 +4,6 @@ import 'package:redux/redux.dart';
 
 import 'appState/appState.dart';
 import 'pages/tabbedHome.dart';
-import 'pages/request.dart';
 import 'reducers/requestsReducer.dart';
 
 void main() {
@@ -27,7 +26,7 @@ class AbstrackApp extends StatelessWidget {
       child: new MaterialApp(
           theme: new ThemeData(
               fontFamily: 'ibm-sans',
-              primaryColor: Colors.blue[700],
+              primaryColor: Colors.green[400],
               accentColor: Colors.grey[900]),
           routes: <String, WidgetBuilder>{
             AbstrackRoutes.feed: (context) => new TabbedHome(title: "ABSTRACK")

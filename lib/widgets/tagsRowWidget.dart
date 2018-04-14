@@ -12,7 +12,7 @@ class TagsRowWidget extends StatelessWidget {
 
     tags.take(count).forEach((t) => tagsList.add(new Container(
         decoration: new BoxDecoration(
-            color: Colors.blue[400],
+            color: Colors.deepPurple[200],
             borderRadius: new BorderRadius.all(new Radius.circular(2.0))),
         margin: EdgeInsets.only(right: 5.0),
         padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
