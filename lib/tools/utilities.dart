@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
@@ -31,6 +32,26 @@ class Utils {
       await launch(url, forceWebView: true, forceSafariVC: true);
     } else {
       throw 'Could not launch $url';
+    }
+  }
+
+  static String getHumanFriendlyDate(DateTime dateTime) {
+    var difference = new DateTime.now().difference(dateTime);
+
+    if (difference.inMinutes < 1) {
+      return "Now";
+    } else if (difference.inHours < 1) {
+      return difference.inMinutes.toString() + " mins";
+    } else if (difference.inHours < 24) {
+      return difference.inHours.toString() + " hrs";
+    } else if (difference.inHours < 48) {
+      return difference.inDays.toString() + " day";
+    } else if (difference.inHours < 72) {
+      return difference.inDays.toString() + " days";
+    } else if (difference.inDays < 365) {
+      return new DateFormat("d MMM h:m a").format(dateTime.toLocal());
+    } else {
+      return "${dateTime.day.toString()} ${dateTime.month.toString()} ${dateTime.year.toString()}";
     }
   }
 }

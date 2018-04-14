@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/request.dart';
 import '../pages/request.dart';
+import '../tools/utilities.dart';
 
 class RequestCardWidget extends StatelessWidget {
   final Request request;
@@ -37,7 +38,8 @@ class RequestCardWidget extends StatelessWidget {
                             fontWeight: FontWeight.bold, fontSize: 18.0)),
                     subtitle: new Padding(
                         padding: EdgeInsets.only(top: 3.0),
-                        child: new Text('24 mins',
+                        child: new Text(
+                            Utils.getHumanFriendlyDate(request.dateCreated),
                             style: new TextStyle(color: Colors.grey[500]))),
                     trailing: new Icon(
                       Icons.star,
@@ -45,7 +47,7 @@ class RequestCardWidget extends StatelessWidget {
                       color: Colors.orangeAccent,
                     ),
                   ),
-                  new Padding(
+                  new Container(
                       padding: EdgeInsets.only(
                           top: 0.0, right: 15.0, left: 15.0, bottom: 15.0),
                       child: new Text(
