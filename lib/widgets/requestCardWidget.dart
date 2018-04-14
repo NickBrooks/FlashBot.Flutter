@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/request.dart';
 import '../pages/request.dart';
 import '../tools/utilities.dart';
-import 'tagsRow.dart';
+import 'tagsRowWidget.dart';
 
 class RequestCardWidget extends StatelessWidget {
   final Request request;
@@ -27,17 +27,16 @@ class RequestCardWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Container(
-                    child: request.imageUrl != ""
-                        ? new Container(
-                            height: 200.0,
-                            decoration: new BoxDecoration(
-                              image: new DecorationImage(
-                                image: new NetworkImage(request.imageUrl),
-                                fit: BoxFit.cover,
-                              ),
-                            ))
-                        : new Container()),
+                request.imageUrl != ""
+                    ? new Container(
+                        height: 200.0,
+                        decoration: new BoxDecoration(
+                          image: new DecorationImage(
+                            image: new NetworkImage(request.imageUrl),
+                            fit: BoxFit.cover,
+                          ),
+                        ))
+                    : new Container(),
                 new Container(
                     decoration: new BoxDecoration(
                         color: Colors.grey[100],
