@@ -29,9 +29,14 @@ class RequestCardWidget extends StatelessWidget {
               children: <Widget>[
                 new Container(
                     child: request.imageUrl != ""
-                        ? new Image.network(
-                            request.imageUrl,
-                          )
+                        ? new Container(
+                            height: 200.0,
+                            decoration: new BoxDecoration(
+                              image: new DecorationImage(
+                                image: new NetworkImage(request.imageUrl),
+                                fit: BoxFit.cover,
+                              ),
+                            ))
                         : new Container()),
                 new Container(
                     decoration: new BoxDecoration(
