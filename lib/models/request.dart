@@ -11,6 +11,7 @@ class Request {
   final String title;
   final String summary;
   final String body;
+  final String imageUrl;
 
   Request(
       {String id,
@@ -19,12 +20,14 @@ class Request {
       List<String> tags,
       String title,
       String summary,
-      String body})
+      String body,
+      String imageUrl})
       : this.body = body ?? '',
         this.title = title ?? '',
         this.trackId = trackId ?? '',
         this.dateCreated = dateCreated ?? new DateTime.now(),
         this.tags = tags ?? [],
         this.summary = summary ?? '',
+        this.imageUrl = imageUrl ?? '',
         this.id = id ?? new Utils().generateV4();
 }

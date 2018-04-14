@@ -38,8 +38,8 @@ class _HomeState extends State<Home> {
           converter: (store) => store.state.requests,
           builder: (context, requests) {
             return new ListView(
+              padding: EdgeInsets.only(bottom: 15.0, left: 10.0, right: 10.0),
               physics: AlwaysScrollableScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
               children: _buildRequestList(requests),
             );
           },
