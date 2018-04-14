@@ -38,26 +38,28 @@ class RequestCardWidget extends StatelessWidget {
                         ))
                     : new Container(),
                 new Container(
-                    decoration: new BoxDecoration(
-                        color: Colors.green[300],
-                        borderRadius:
-                            new BorderRadius.all(new Radius.circular(2.0))),
                     padding:
-                        EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
-                    margin: EdgeInsets.only(top: 15.0, left: 15.0, right: 10.0),
-                    child: new Text(
-                      request.trackName,
-                      style: new TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15.0),
-                      overflow: TextOverflow.ellipsis,
-                    )),
+                        EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
+                    child: new Text(request.title,
+                        style: new TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24.0))),
                 new ListTile(
-                  title: new Text(request.title,
-                      overflow: TextOverflow.ellipsis,
-                      style: new TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 18.0)),
+                  title: new Container(
+                      decoration: new BoxDecoration(
+                          color: Colors.green[300],
+                          borderRadius:
+                              new BorderRadius.all(new Radius.circular(2.0))),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
+                      margin: EdgeInsets.only(top: 3.0),
+                      child: new Text(
+                        request.trackName,
+                        style: new TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15.0),
+                        overflow: TextOverflow.ellipsis,
+                      )),
                   subtitle: new Padding(
                       padding: EdgeInsets.only(top: 3.0),
                       child: new Text(
@@ -66,7 +68,7 @@ class RequestCardWidget extends StatelessWidget {
                   trailing: new Icon(
                     Icons.star_border,
                     size: 30.0,
-                    color: Colors.green[200],
+                    color: Colors.amber[400],
                   ),
                 ),
                 new Container(

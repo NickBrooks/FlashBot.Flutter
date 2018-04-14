@@ -50,7 +50,7 @@ class _RequestPageState extends State<RequestPage> {
                       new Text(
                         widget.request.title,
                         style: new TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 22.0),
+                            fontWeight: FontWeight.bold, fontSize: 24.0),
                       ),
                       new Container(
                           padding: EdgeInsets.only(top: 10.0),
