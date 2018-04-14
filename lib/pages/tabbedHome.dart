@@ -35,8 +35,8 @@ class _TabbedHomeState extends State<TabbedHome> {
                         bottom: new TabBar(
                           indicatorColor: Colors.blue[300],
                           tabs: [
-                            new Tab(icon: new Icon(Icons.format_line_spacing)),
-                            new Tab(icon: new Icon(Icons.directions_transit)),
+                            new Tab(icon: new Icon(Icons.flash_on)),
+                            new Tab(icon: new Icon(Icons.more)),
                             new Tab(icon: new Icon(Icons.star)),
                             new Tab(icon: new Icon(Icons.account_circle)),
                           ],
@@ -47,7 +47,7 @@ class _TabbedHomeState extends State<TabbedHome> {
                   body: new TabBarView(
                     children: [
                       new RequestFeedWidget(requests),
-                      new Icon(Icons.directions_transit),
+                      new Icon(Icons.more),
                       new Icon(Icons.star),
                       new Icon(Icons.account_circle),
                     ],

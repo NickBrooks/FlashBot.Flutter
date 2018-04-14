@@ -6,6 +6,7 @@ import '../tools/utilities.dart';
 class Request {
   final String id;
   final String trackId;
+  final String trackName;
   final DateTime dateCreated;
   final List<String> tags;
   final String title;
@@ -16,6 +17,7 @@ class Request {
   Request(
       {String id,
       String trackId,
+      String trackName,
       DateTime dateCreated,
       List<String> tags,
       String title,
@@ -25,6 +27,7 @@ class Request {
       : this.body = body ?? '',
         this.title = title ?? '',
         this.trackId = trackId ?? '',
+        this.trackName = trackName ?? '',
         this.dateCreated = dateCreated ?? new DateTime.now(),
         this.tags = tags ?? [],
         this.summary = summary ?? '',

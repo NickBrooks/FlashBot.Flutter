@@ -36,9 +36,11 @@ class _RequestPageState extends State<RequestPage> {
             child: new ListView(
           physics: AlwaysScrollableScrollPhysics(),
           children: <Widget>[
-            new Image.network(
-              'http://nnimgt-a.akamaihd.net/transform/v1/crop/frm/VXPt7xsp7g5SUQ49KQuzPr/4711a464-2174-4a8d-9460-9695632abbaa.jpg/r0_182_5022_3271_w1200_h678_fmax.jpg',
-            ),
+            widget.request.imageUrl != ""
+                ? new Image.network(
+                    widget.request.imageUrl,
+                  )
+                : new Container(),
             new Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: new MarkdownBody(

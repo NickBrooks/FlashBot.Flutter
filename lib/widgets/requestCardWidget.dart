@@ -33,6 +33,21 @@ class RequestCardWidget extends StatelessWidget {
                             request.imageUrl,
                           )
                         : new Container()),
+                new Container(
+                    decoration: new BoxDecoration(
+                        color: Colors.grey[100],
+                        borderRadius:
+                            new BorderRadius.all(new Radius.circular(2.0))),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
+                    margin: EdgeInsets.only(top: 15.0, left: 15.0, right: 10.0),
+                    child: new Text(
+                      request.trackName,
+                      style: new TextStyle(
+                          color: Colors.greenAccent[700],
+                          fontWeight: FontWeight.bold),
+                      overflow: TextOverflow.ellipsis,
+                    )),
                 new ListTile(
                   title: new Text(request.title,
                       overflow: TextOverflow.ellipsis,
