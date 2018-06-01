@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../models/request.dart';
-import '../pages/request.dart';
+import '../models/post.dart';
+import '../pages/post.dart';
 import '../tools/utilities.dart';
 import 'tagsRowWidget.dart';
 
-class RequestCardWidget extends StatelessWidget {
-  final Request request;
+class PostCardWidget extends StatelessWidget {
+  final Post post;
 
-  RequestCardWidget(this.request);
+  PostCardWidget(this.post);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class RequestCardWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new RequestPage(request)),
+                    builder: (context) => new PostPage(post)),
               );
             },
             child: new Card(
@@ -27,12 +27,12 @@ class RequestCardWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                request.imageUrl != ""
+                post.imageUrl != ""
                     ? new Container(
                         height: 200.0,
                         decoration: new BoxDecoration(
                           image: new DecorationImage(
-                            image: new NetworkImage(request.imageUrl),
+                            image: new NetworkImage(post.imageUrl),
                             fit: BoxFit.cover,
                           ),
                         ))
@@ -40,7 +40,7 @@ class RequestCardWidget extends StatelessWidget {
                 new Container(
                     padding:
                         EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
-                    child: new Text(request.title,
+                    child: new Text(post.title,
                         style: new TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 24.0))),
                 new ListTile(
@@ -53,7 +53,7 @@ class RequestCardWidget extends StatelessWidget {
                           EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
                       margin: EdgeInsets.only(top: 3.0),
                       child: new Text(
-                        request.trackName,
+                        post.trackName,
                         style: new TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -63,7 +63,7 @@ class RequestCardWidget extends StatelessWidget {
                   subtitle: new Padding(
                       padding: EdgeInsets.only(top: 3.0),
                       child: new Text(
-                          Utils.getHumanFriendlyDate(request.dateCreated),
+                          Utils.getHumanFriendlyDate(post.dateCreated),
                           style: new TextStyle(color: Colors.grey[500]))),
                   trailing: new Icon(
                     Icons.star_border,
@@ -75,14 +75,14 @@ class RequestCardWidget extends StatelessWidget {
                     padding: EdgeInsets.only(
                         top: 0.0, right: 15.0, left: 15.0, bottom: 15.0),
                     child: new Text(
-                      request.summary,
+                      post.summary,
                       style:
                           new TextStyle(color: Colors.grey[900], height: 1.2),
                     )),
                 new Container(
                     padding: EdgeInsets.only(
                         top: 0.0, right: 15.0, left: 15.0, bottom: 15.0),
-                    child: new TagsRowWidget(request.tags, 3))
+                    child: new TagsRowWidget(post.tags, 3))
               ],
             ))));
   }

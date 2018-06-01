@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import '../tools/utilities.dart';
 
 @immutable
-class Request {
+class Post {
   final String id;
   final String trackId;
   final String trackName;
@@ -14,7 +14,7 @@ class Request {
   final String body;
   final String imageUrl;
 
-  Request(
+  Post(
       {String id,
       String trackId,
       String trackName,

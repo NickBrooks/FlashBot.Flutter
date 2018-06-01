@@ -1,14 +1,14 @@
-import '../models/request.dart';
+import '../models/post.dart';
 import '../tools/utilities.dart';
 
 class AppState {
   final int counter;
-  final List<Request> requests;
+  final List<Post> posts;
 
-  AppState({this.counter = 0, this.requests = const []});
+  AppState({this.counter = 0, this.posts = const []});
 
-  factory AppState.initial() => new AppState(counter: 0, requests: [
-        new Request(
+  factory AppState.initial() => new AppState(counter: 0, posts: [
+        new Post(
             id: Utils().generateV4(),
             title: "This is a super long title but obviously not long enough",
             summary:
@@ -46,7 +46,7 @@ Fagan did stress the positives.""",
             trackId: "a2a9ca52-09c5-4694-ac0f-df6ae1372a47",
             trackName: "Jessie's track",
             imageUrl: "https://i.imgur.com/VjeIrRO.jpg"),
-        new Request(
+        new Post(
             id: Utils().generateV4(),
             title: "Darcy Fogarty",
             summary: "Darcy Fogarty can kick goals",
@@ -67,7 +67,7 @@ Fagan did stress the positives.""",
             trackName: "Nick's track",
             imageUrl:
                 "http://nnimgt-a.akamaihd.net/transform/v1/crop/frm/VXPt7xsp7g5SUQ49KQuzPr/4711a464-2174-4a8d-9460-9695632abbaa.jpg/r0_182_5022_3271_w1200_h678_fmax.jpg"),
-        new Request(
+        new Post(
             id: Utils().generateV4(),
             title: "This is just a text one",
             summary: "Testing out a text only card",

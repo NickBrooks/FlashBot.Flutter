@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import '../appState/appState.dart';
-import '../models/request.dart';
-import '../widgets/requestFeedWidget.dart';
+import '../models/post.dart';
+import '../widgets/postFeedWidget.dart';
 
 class TabbedHome extends StatefulWidget {
   TabbedHome({Key key, this.title}) : super(key: key);
@@ -17,9 +17,9 @@ class TabbedHome extends StatefulWidget {
 class _TabbedHomeState extends State<TabbedHome> {
   @override
   Widget build(BuildContext context) {
-    return new StoreConnector<AppState, List<Request>>(
-        converter: (store) => store.state.requests,
-        builder: (context, requests) {
+    return new StoreConnector<AppState, List<Post>>(
+        converter: (store) => store.state.posts,
+        builder: (context, posts) {
           return new DefaultTabController(
               length: 4,
               child: new Scaffold(
@@ -49,7 +49,7 @@ class _TabbedHomeState extends State<TabbedHome> {
                   },
                   body: new TabBarView(
                     children: [
-                      new RequestFeedWidget(requests),
+                      new PostFeedWidget(posts),
                       new Icon(Icons.more),
                       new Icon(Icons.star),
                       new Icon(Icons.account_circle),

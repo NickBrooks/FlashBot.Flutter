@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../UI/requestFeed.dart';
-import '../models/request.dart';
+import '../UI/postFeed.dart';
+import '../models/post.dart';
 
-class RequestFeedWidget extends StatelessWidget {
-  final List<Request> requests;
+class PostFeedWidget extends StatelessWidget {
+  final List<Post> posts;
 
-  RequestFeedWidget(this.requests);
+  PostFeedWidget(this.posts);
 
   @override
   Widget build(BuildContext context) {
     return new ListView(
       padding: EdgeInsets.only(bottom: 15.0, left: 10.0, right: 10.0),
       physics: AlwaysScrollableScrollPhysics(),
-      children: requestFeed(requests),
+      children: postFeed(posts),
     );
   }
 }

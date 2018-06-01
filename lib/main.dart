@@ -4,7 +4,7 @@ import 'package:redux/redux.dart';
 
 import 'appState/appState.dart';
 import 'pages/tabbedHome.dart';
-import 'reducers/requestsReducer.dart';
+import 'reducers/postsReducer.dart';
 
 void main() {
   runApp(new FlashBotApp());
@@ -12,7 +12,7 @@ void main() {
 
 class FlashBotRoutes {
   static final feed = "/";
-  static final request = "/request";
+  static final request = "/post";
 }
 
 class FlashBotApp extends StatelessWidget {
@@ -36,5 +36,5 @@ class FlashBotApp extends StatelessWidget {
 }
 
 AppState appReducer(AppState state, action) {
-  return new AppState(requests: requestsReducer(state.requests, action));
+  return new AppState(posts: postsReducer(state.posts, action));
 }
