@@ -7,15 +7,15 @@ import 'pages/tabbedHome.dart';
 import 'reducers/requestsReducer.dart';
 
 void main() {
-  runApp(new AbstrackApp());
+  runApp(new FlashBotApp());
 }
 
-class AbstrackRoutes {
+class FlashBotRoutes {
   static final feed = "/";
   static final request = "/request";
 }
 
-class AbstrackApp extends StatelessWidget {
+class FlashBotApp extends StatelessWidget {
   final store =
       new Store<AppState>(appReducer, initialState: new AppState.initial());
 
@@ -29,7 +29,7 @@ class AbstrackApp extends StatelessWidget {
               primaryColor: Colors.green[300],
               accentColor: Colors.grey[900]),
           routes: <String, WidgetBuilder>{
-            AbstrackRoutes.feed: (context) => new TabbedHome(title: "ABSTRACK")
+            FlashBotRoutes.feed: (context) => new TabbedHome(title: "FLASHBOT")
           }),
     );
   }
