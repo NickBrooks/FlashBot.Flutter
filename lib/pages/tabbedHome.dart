@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import '../appState/appState.dart';
-import '../models/post.dart';
 import '../widgets/postFeedWidget.dart';
 
 class TabbedHome extends StatefulWidget {
@@ -17,9 +16,9 @@ class TabbedHome extends StatefulWidget {
 class _TabbedHomeState extends State<TabbedHome> {
   @override
   Widget build(BuildContext context) {
-    return new StoreConnector<AppState, List<Post>>(
-        converter: (store) => store.state.posts,
-        builder: (context, posts) {
+    return new StoreConnector<AppState, AppState>(
+        converter: (store) => store.state,
+        builder: (context, state) {
           return new DefaultTabController(
               length: 4,
               child: new Scaffold(
@@ -29,13 +28,16 @@ class _TabbedHomeState extends State<TabbedHome> {
                     return <Widget>[
                       new SliverAppBar(
                         title: new Text(widget.title,
-                            style: new TextStyle(color: Colors.blueGrey[900])),
+                            style: new TextStyle(
+                                color: Colors.blueGrey[800],
+                                fontWeight: FontWeight.bold)),
                         forceElevated: innerBoxIsScrolled,
                         pinned: true,
                         floating: true,
+                        centerTitle: true,
                         bottom: new TabBar(
                           labelColor: Colors.green[100],
-                          unselectedLabelColor: Colors.blueGrey[900],
+                          unselectedLabelColor: Colors.blueGrey[800],
                           indicatorColor: Colors.green[100],
                           tabs: [
                             new Tab(icon: new Icon(Icons.flash_on)),
@@ -49,7 +51,7 @@ class _TabbedHomeState extends State<TabbedHome> {
                   },
                   body: new TabBarView(
                     children: [
-                      new PostFeedWidget(posts),
+                      new PostFeedWidget(state.feed),
                       new Icon(Icons.more),
                       new Icon(Icons.star),
                       new Icon(Icons.account_circle),

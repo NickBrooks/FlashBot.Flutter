@@ -1,15 +1,15 @@
 import '../models/post.dart';
 
-class AddPostAction {
+class AddPostToFeedAction {
   final Post post;
 
-  AddPostAction(this.post);
+  AddPostToFeedAction(this.post);
 }
 
-class PostsLoadedAction {
+class LoadFeedAction {
   final List<Post> posts;
 
-  PostsLoadedAction(this.posts);
+  LoadFeedAction(this.posts);
 }
 
-class PostsNotLoadedAction {}
+class SetNoPostsInFeed {}

@@ -4,7 +4,7 @@ import 'package:redux/redux.dart';
 
 import 'appState/appState.dart';
 import 'pages/tabbedHome.dart';
-import 'reducers/postsReducer.dart';
+import 'reducers/feedReducer.dart';
 
 void main() {
   runApp(new FlashBotApp());
@@ -29,12 +29,12 @@ class FlashBotApp extends StatelessWidget {
               primaryColor: Colors.green[300],
               accentColor: Colors.grey[900]),
           routes: <String, WidgetBuilder>{
-            FlashBotRoutes.feed: (context) => new TabbedHome(title: "FLASHBOT")
+            FlashBotRoutes.feed: (context) => new TabbedHome(title: "FlashBot.")
           }),
     );
   }
 }
 
 AppState appReducer(AppState state, action) {
-  return new AppState(posts: postsReducer(state.posts, action));
+  return new AppState(feed: feedReducer(state.feed, action));
 }
