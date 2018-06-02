@@ -4,6 +4,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import '../appState/appState.dart';
 import '../tools/labels.dart';
 import '../widgets/postFeedWidget.dart';
+import 'loginPage.dart';
 
 class TabbedHome extends StatefulWidget {
   TabbedHome({Key key}) : super(key: key);
@@ -25,16 +26,7 @@ class _TabbedHomeState extends State<TabbedHome> {
 
 Widget _authenticateUser(AppState state) {
   if (state.authToken.refreshToken == "") {
-    return new Scaffold(
-      body: new Center(
-        child: new RaisedButton(
-          child: new Text('Launch new screen'),
-          onPressed: () {
-            // Navigate to second screen when tapped!
-          },
-        ),
-      ),
-    );
+    return new LoginPage();
   }
 
   return new DefaultTabController(
