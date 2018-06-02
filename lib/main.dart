@@ -11,6 +11,7 @@ void main() {
 }
 
 class FlashBotRoutes {
+  static final login = "/login";
   static final feed = "/";
   static final request = "/post";
 }
@@ -29,7 +30,7 @@ class FlashBotApp extends StatelessWidget {
               primaryColor: Colors.green[300],
               accentColor: Colors.grey[900]),
           routes: <String, WidgetBuilder>{
-            FlashBotRoutes.feed: (context) => new TabbedHome(title: "FlashBot.")
+            FlashBotRoutes.feed: (context) => new TabbedHome()
           }),
     );
   }

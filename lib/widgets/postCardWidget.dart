@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/post.dart';
-import '../pages/post.dart';
+import '../pages/postPage.dart';
 import '../tools/utilities.dart';
 import 'tagsRowWidget.dart';
 
@@ -19,7 +19,7 @@ class PostCardWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new PostPage(post)),
+                    builder: (context) => new PostPage(post.id)),
               );
             },
             child: new Card(
